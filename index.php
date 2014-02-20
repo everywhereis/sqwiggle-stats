@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Jaw-dropping stats for your Sqwiggle-team">
+		<link href="http://fonts.googleapis.com/css?family=Lato:900,300" rel="stylesheet" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 		<title>Sqwiggle Stats</title>
 		<link rel="stylesheet" href="public/lib/pure/pure-min.css">
