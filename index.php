@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html >
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,19 +20,25 @@
 		<div ng-view></div>
 		<!-- Jquery -->
 		<script type='text/javascript' src='public/lib/jquery/dist/jquery.min.js'></script>
-
+		
 		<!-- AngularJS -->
 		<script type="text/javascript" src="public/lib/angular/angular.js"></script>
 		<script type="text/javascript" src="public/lib/angular-sanitize/angular-sanitize.js"></script>
 		<script type="text/javascript" src="public/lib/angular-resource/angular-resource.js"></script>
 		<script type="text/javascript" src="public/lib/angular-route/angular-route.js"></script>
-
+		
+		<!-- Chart module -->	
+		<script src="public/lib/d3/d3.min.js"></script>
+		<script src="public/lib/angular-charts/dist/angular-charts.js"></script>
+		
 		<!-- Angular Moment -->
 		<script src="public/lib/moment/moment.js"></script>
 		<script src="public/lib/angular-moment/angular-moment.js"></script>
 		
 		<!-- NgInfinite -->
 		<script type='text/javascript' src='public/lib/ngInfiniteScroll/ng-infinite-scroll.js'></script>
+
+	
 		
 		<!-- Application init -->
 		<script type="text/javascript" src="public/js/app.js"></script>
@@ -40,7 +46,6 @@
 		<script type="text/javascript" src="public/js/filters.js"></script>
 
 		<!-- Application Services -->
-		<script type="text/javascript" src="public/js/services/users.js"></script>
 		<script type="text/javascript" src="public/js/services/fibonacci.js"></script>
 
 		<!-- Application Filters -->

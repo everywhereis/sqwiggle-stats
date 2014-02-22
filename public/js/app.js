@@ -5,11 +5,12 @@ angular.module('sqwiggle-feed',
 	'ngRoute',
 	'ngSanitize',
 	'angularMoment',
+	'angularCharts',
 	'infinite-scroll',
 	'sqwiggle-feed.users',
 	'sqwiggle-feed.system',
 	'sqwiggle-feed.filters',
-	'sqwiggle-feed.fibonacci',
+	'sqwiggle-feed.fibonacci'
 	]);
 
 angular.module('sqwiggle-feed.users', []);
