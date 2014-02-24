@@ -20,3 +20,9 @@ angular.module('sqwiggle-feed.filters').filter('orderObjectBy', function() {
     return filtered;
   };
 });
+
+angular.module('sqwiggle-feed.filters').filter('humanize', function() {
+  return function(time) {
+    return moment.duration(time, "seconds").humanize();
+  }
+});

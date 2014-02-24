@@ -40,7 +40,10 @@
 						<div class="description">Characters posted</div>
 					</div>
 					<div class="card">
-						<div class="metric-big">{{totalConversationDuration}}</div>
+						<div class="metric-big">
+						{{totalConversationDuration | humanize}}
+
+						</div>
 						<div class="description">Total time in conversations</div>
 					</div>
 					<div class="card">
