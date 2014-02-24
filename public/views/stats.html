@@ -1,6 +1,68 @@
 
 <section ng-controller="StatsController" ng-init="getStats()">
 	<div class="container">
-		<h2>Stats page goes here...</h2>
+			<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+				<a class="pure-menu-heading" href="">
+					Sqwiggle <span class="bold">stats</span>
+				</a>
+					<!--<span style="position:absolute; top:1.1em;" >
+						<form class="pure-form">
+						<input class="pure-input-1-2" type="text" placeholder="Sqwiggle API secret">
+						<button type="submit" class="pure-button pure-button-primary">Get stats</button>
+						</form>
+					</span>-->
+			</div>
+		<div class="data">
+			<div class="pure-g-r">
+				<div class="pure-u-1-2"> 
+					<div class="card" ng-init="getUsers(); getRooms()">
+						<div class="metric-big">
+							{{room.name}}
+						</div>
+						<div class="description">
+							<img class="avatar" ng-src={{user.avatar}} alt="avatar" ng-repeat="user in users"  />
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="metric-big">Github Pushes</div>
+						<div ac-chart="chartType" ac-data="data" ac-config="config" id='chart' class='chart'></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="pure-u-1-4">
+				<div class="card">
+						<div class="metric-big">75K</div>
+						<div class="description">Total messages sent</div>
+					</div>
+					<div class="card">
+						<div class="metric-big">20M</div>
+						<div class="description">Characters posted</div>
+					</div>
+					<div class="card">
+						<div class="metric-big">250hrs</div>
+						<div class="description">Total time in conversations</div>
+					</div>
+					<div class="card">
+						<div class="metric-big">200</div>
+						<div class="description">Total Gifs sent</div>
+					</div>
+				</div>
+				<div class="pure-u-1-4">
+					<div class="card">
+						<div class="metric-big">Ross</div>
+						<div class="description">Co-worker with most comments</div>
+					</div>
+					<div class="card">
+						<div class="metric-big">Dyel</div>
+						<div class="description">Shyest Co-worker</div>
+					</div>
+					<div class="card">
+						<div class="metric-big">Dennis</div>
+						<div class="description">Co-worker with the most time spent in conversation</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
