@@ -40,7 +40,7 @@
 						<div class="description">Characters posted</div>
 					</div>
 					<div class="card">
-						<div class="metric-big">250hrs</div>
+						<div class="metric-big">{{totalConversationDuration}}</div>
 						<div class="description">Total time in conversations</div>
 					</div>
 					<div class="card">
@@ -62,7 +62,9 @@
 						<div class="description">Shyest Co-worker</div>
 					</div>
 					<div class="card">
-						<div class="metric-big">Dennis</div>
+						<div ng-repeat = "user in userStats | orderObjectBy:'conversationTime':true">
+							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} {{user.conversationTime}}</div>
+						</div>
 						<div class="description">Co-worker with the most time spent in conversation</div>
 					</div>
 				</div>
