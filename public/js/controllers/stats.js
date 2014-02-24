@@ -228,6 +228,5 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 					$scope.userStats[data.author.id].conversationTime += data.conversationTime;
 				}
 			}
-			console.log($scope.userStats);
 		}
 }]);
