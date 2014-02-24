@@ -4,6 +4,7 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 	function ($scope, $interval, $timeout, $location, $http) {
 		$scope.users = [];
 		$scope.room = [];
+		$scope.allCharacters = 0;
 		$scope.data = {
 			series: [''],
 			data : [{
@@ -104,10 +105,11 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 						$scope.getAllMessages(page);
 					}
 				}
-			})
+			});
 		}
 
 		$scope.getAllMessages = function(pages) {
+			// for all the pages that we probed, send a request
 			for(var i = 0; i < pages; i++) {
 				$scope.getMessagesForPage(i);
 			}
@@ -124,10 +126,18 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 				if(Array.isArray(e)) {
 					if(e.length > 0) {
 						$scope.allMessages = $scope.allMessages.concat(e);
+						for(var key in e) {
+							var message = e[key];
+							$scope.allCharacters += $scope.countCharacters(message.text);
+						}
 					}
 				}
 			}).error(function(e){
 				console.log('could not fetch messages...');
 			});
+		}
+
+		$scope.countCharacters = function(message) {
+			return message ? (message.length ? message.length : 0) : 0;
 		}
 }]);
