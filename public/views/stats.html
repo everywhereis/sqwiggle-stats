@@ -50,11 +50,15 @@
 				</div>
 				<div class="pure-u-1-4">
 					<div class="card">
-						<div class="metric-big">Ross</div>
+						<div ng-repeat = "user in userStats | orderObjectBy:'numOfMessages':true">
+							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} {{user.numOfMessages}}</div>
+						</div>
 						<div class="description">Co-worker with most comments</div>
 					</div>
 					<div class="card">
-						<div class="metric-big">Dyel</div>
+						<div ng-repeat = "user in userStats | orderObjectBy:'numOfMessages':false">
+							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} {{user.numOfMessages}}</div>
+						</div>
 						<div class="description">Shyest Co-worker</div>
 					</div>
 					<div class="card">

@@ -5,6 +5,7 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 		$scope.users = [];
 		$scope.room = [];
 		$scope.allCharacters = 0;
+		$scope.userStats = {};
 		$scope.data = {
 			series: [''],
 			data : [{
@@ -129,9 +130,11 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 						for(var key in e) {
 							var message = e[key];
 							$scope.allCharacters += $scope.countCharacters(message.text);
+							$scope.addUserStats(message);
 						}
 					}
 				}
+				console.log($scope.userStats);
 			}).error(function(e){
 				console.log('could not fetch messages...');
 			});
@@ -139,5 +142,19 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 
 		$scope.countCharacters = function(message) {
 			return message ? (message.length ? message.length : 0) : 0;
+		}
+
+		$scope.addUserStats = function(data) {
+			if(data != null && data.author && data.author.id) {
+				if($scope.userStats[data.author.id] === null ||
+				 $scope.userStats[data.author.id] === undefined) {
+					$scope.userStats[data.author.id] = {
+						author: data.author,
+						numOfMessages : 1
+					};
+				} else {
+					$scope.userStats[data.author.id].numOfMessages += 1;
+				}
+			}
 		}
 }]);
