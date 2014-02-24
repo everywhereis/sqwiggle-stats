@@ -37,8 +37,6 @@
 		
 		<!-- NgInfinite -->
 		<script type='text/javascript' src='public/lib/ngInfiniteScroll/ng-infinite-scroll.js'></script>
-
-	
 		
 		<!-- Application init -->
 		<script type="text/javascript" src="public/js/app.js"></script>
@@ -46,7 +44,7 @@
 		<script type="text/javascript" src="public/js/filters.js"></script>
 
 		<!-- Application Services -->
-		<script type="text/javascript" src="public/lib/angular-fibonacci/fibonacci.js"></script>
+		<script type="text/javascript" src="public/lib/angular-fibonacci/angular-fibonacci.js"></script>
 
 		<!-- Application Filters -->
 		<script type="text/javascript" src="public/js/filters.js"></script>

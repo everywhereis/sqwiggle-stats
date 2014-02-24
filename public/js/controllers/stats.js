@@ -2,7 +2,6 @@
 
 angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', '$interval', '$timeout', '$location', '$http', 
 	function ($scope, $interval, $timeout, $location, $http) {
-    	console.log('we should put code here...');
 		$scope.users = [];
 		$scope.room = [];
 		$scope.data = {
@@ -46,10 +45,12 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 			"position": "right"
 		  }
 		}
-		
-		
-		
-		
+
+		$scope.initialize = function() {
+			//$scope.getAllMessages(0);
+			$scope.probeMessages(1);
+		}
+
 		$scope.getUsers = function() {
 			$http.get('resources/api.php', {
 				params: {
@@ -85,7 +86,48 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 				console.log('could not fetch messages...');
 			});
 		}
-	
-		
-		
+
+		$scope.probeMessages = function(page) {
+			$scope.allMessages = [];
+			$http.get('resources/api.php', {
+				params: {
+					endpoint: 'messages',
+					page : page,
+					limit: 100
+				}
+			}).success(function(e) {
+				if(Array.isArray(e)) {
+					if(e.length > 0) {
+						$scope.probeMessages(page * 2);
+					}
+					else {
+						$scope.getAllMessages(page);
+					}
+				}
+			})
+		}
+
+		$scope.getAllMessages = function(pages) {
+			for(var i = 0; i < pages; i++) {
+				$scope.getMessagesForPage(i);
+			}
+		}
+
+		$scope.getMessagesForPage = function(page) {
+			$http.get('resources/api.php', {
+				params: {
+					endpoint: 'messages',
+					page : page,
+					limit: 100
+				}
+			}).success(function(e) {
+				if(Array.isArray(e)) {
+					if(e.length > 0) {
+						$scope.allMessages = $scope.allMessages.concat(e);
+					}
+				}
+			}).error(function(e){
+				console.log('could not fetch messages...');
+			});
+		}
 }]);

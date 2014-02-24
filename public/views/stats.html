@@ -1,5 +1,5 @@
 
-<section ng-controller="StatsController" ng-init="getStats()">
+<section ng-controller="StatsController" ng-init="initialize();">
 	<div class="container">
 			<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
 				<a class="pure-menu-heading" href="">
@@ -32,7 +32,7 @@
 				</div>
 				<div class="pure-u-1-4">
 				<div class="card">
-						<div class="metric-big">75K</div>
+						<div class="metric-big">{{allMessages.length}}</div>
 						<div class="description">Total messages sent</div>
 					</div>
 					<div class="card">
