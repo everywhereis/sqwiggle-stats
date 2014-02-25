@@ -41,34 +41,29 @@
 					</div>
 					<div class="card">
 						<div class="metric-big">
-						{{totalConversationDuration | humanize}}
-
+						{{totalConversationDuration}}
 						</div>
 						<div class="description">Total time in conversations</div>
-					</div>
-					<div class="card">
-						<div class="metric-big">200</div>
-						<div class="description">Total Gifs sent</div>
 					</div>
 				</div>
 				<div class="pure-u-1-4">
 					<div class="card">
 						<div ng-repeat = "user in userStats | orderObjectBy:'numOfMessages':true">
-							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} {{user.numOfMessages}}</div>
+							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} </div>
+							<div ng-if="$index == 0" class="description">Woow you talk a lot you are responsible for {{user.numOfMessages}} comments in the feed</div>
 						</div>
-						<div class="description">Co-worker with most comments</div>
 					</div>
 					<div class="card">
 						<div ng-repeat = "user in userStats | orderObjectBy:'numOfMessages':false">
-							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} {{user.numOfMessages}}</div>
+							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} </div>
+							<div ng-if="$index == 0" class="description">Hmm you only posted {{user.numOfMessages}} comments</div>
 						</div>
-						<div class="description">Shyest Co-worker</div>
 					</div>
 					<div class="card">
 						<div ng-repeat = "user in userStats | orderObjectBy:'conversationTime':true">
-							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} {{user.conversationTime}}</div>
+							<div ng-if="$index == 0" class="metric-big">{{user.author.name}} </div>
+							<div ng-if="$index == 0"  class="description">Oww you chatterbox you spent{{user.conversationTime}} talking</div>
 						</div>
-						<div class="description">Co-worker with the most time spent in conversation</div>
 					</div>
 				</div>
 			</div>
