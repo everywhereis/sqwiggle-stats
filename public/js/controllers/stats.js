@@ -49,6 +49,8 @@ angular.module('sqwiggle-feed.system').controller('StatsController', ['$scope', 
 		  }
 		}
 
+		$http.defaults.timeout = 10000;
+
 		$scope.initialize = function() {
 			//$scope.getAllMessages(0);
 			$scope.probeMessages(1);
